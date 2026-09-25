@@ -122,3 +122,7 @@ The policy documents are embedded locally with `all-MiniLM-L6-v2` and stored in 
 ## Final Validation
 
 The project structure and module documentation have been reviewed for capstone submission.
+
+## Submission Checklist
+
+The repository contains the data pipeline, analytics, and support assistant modules required for submission.
