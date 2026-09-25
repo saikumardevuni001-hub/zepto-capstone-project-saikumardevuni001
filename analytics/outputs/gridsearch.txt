@@ -1,0 +1,3 @@
+Best parameters: {'model__max_depth': 5, 'model__max_features': 'sqrt', 'model__n_estimators': 200}
+CV best F1: 0.740831
+OOB score: 0.821378

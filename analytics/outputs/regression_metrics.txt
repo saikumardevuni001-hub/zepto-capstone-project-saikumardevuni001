@@ -1,0 +1,5 @@
+MAE: 21.098604
+RMSE: 41.702105
+R2: 0.348163
+Adjusted R2: 0.309130
+Heteroscedasticity: inspect the residual plot; a funnel/non-random spread indicates heteroscedasticity.

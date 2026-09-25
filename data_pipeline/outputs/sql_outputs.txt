@@ -1,0 +1,202 @@
+
+### select_where
+SELECT title, price_inr, rating FROM books
+        WHERE in_stock = 1 AND rating >= 4;
+
+                                                                                                    title  price_inr  rating
+                                                                                            Sharp Objects   5045.010       4
+                                                                    Sapiens: A Brief History of Humankind   5721.265       5
+                                                       The Dirty Little Secrets of Getting Your Dream Job   3517.370       4
+           The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the 1936 Berlin Olympics   2384.300       4
+                                                                                    Shakespeare's Sonnets   2179.630       4
+                                                                                              Set Me Free   1842.030       5
+                                                  Scott Pilgrim's Precious Little Life (Scott Pilgrim #1)   5516.595       5
+                                                                                Rip it Up and Start Again   3694.610       5
+                                                                               Chase Me (Paris Nights #2)   2665.985       5
+                                                                                               Black Dust   3642.915       5
+                                                  Worlds Elsewhere: Journeys Around Shakespeareâs Globe   4251.650       5
+                                                                                           Wall and Piece   4660.990       4
+                                               The Four Agreements: A Practical Guide to Personal Freedom   1863.130       5
+                                                                                        The Elephant Tree   2513.010       5
+                                                                                           Sophie's World   1681.670       5
+                                                                                      Behind Closed Doors   5509.210       4
+                                                                              Private Paris (Private #10)   5022.855       5
+                                       #HigherSelfie: Wake Up Your Life. Free Your Soul. Find Your Tribe.   2438.105       5
+                                                                             We Love You, Charlie Freeman   5303.485       5
+                                                                  Untitled Collection: Sabbath Poems 2014   1505.485       4
+Unseen City: The Majesty of Pigeons, the Discreet Charm of Snails & Other Wonders of the Urban Wilderness   4660.990       4
+                                                                                          This One Summer   2056.195       4
+                                                                                                   Thirst   1821.985       5
+                                                                                      The Past Never Ends   5960.750       4
+
+
+### order_limit
+SELECT title, price_inr FROM books
+        ORDER BY price_inr DESC LIMIT 10;
+
+                                                                                                                          title  price_inr
+                                                                                                 Slow States of Collapse: Poems   6046.205
+                                             Our Band Could Be Your Life: Scenes from the American Indie Underground, 1981-1991   6039.875
+                                                                                                            The Past Never Ends   5960.750
+The Pioneer Woman Cooks: Dinnertime: Comfort Classics, Freezer Food, 16-Minute Meals, and Other Delicious Ways to Solve Supper!   5951.255
+                                                                                                The Secret of Dreadwillow Carse   5921.715
+                                                                                                  Birdsong: A Story in Pictures   5764.520
+                                                                                          Sapiens: A Brief History of Humankind   5721.265
+                                                                                                             Tipping the Velvet   5669.570
+                                                                                                 Aladdin and His Wonderful Lamp   5605.215
+                                                                        Scott Pilgrim's Precious Little Life (Scott Pilgrim #1)   5516.595
+
+
+### distinct
+SELECT DISTINCT c.category_name
+        FROM books b JOIN categories c ON b.category_id = c.category_id
+        ORDER BY c.category_name;
+
+     category_name
+     Add a comment
+               Art
+          Business
+         Childrens
+      Contemporary
+           Default
+           Fantasy
+           Fiction
+    Food and Drink
+Historical Fiction
+           History
+             Music
+           Mystery
+         New Adult
+        Nonfiction
+        Philosophy
+            Poetry
+          Politics
+           Romance
+   Science Fiction
+    Sequential Art
+      Spirituality
+          Thriller
+            Travel
+       Young Adult
+
+
+### between
+SELECT title, price_gbp, rating FROM books
+        WHERE price_gbp BETWEEN 10 AND 30
+        ORDER BY price_gbp;
+
+                                                                                                      title  price_gbp  rating
+                                                                                                In Her Wake      12.84       1
+                                                             Starving Hearts (Triangular Trade Trilogy, #1)      13.99       2
+                                                                    Untitled Collection: Sabbath Poems 2014      14.27       4
+                                                                                             Sophie's World      15.94       5
+                                                    Tsubasa: WoRLD CHRoNiCLE 2 (Tsubasa WoRLD CHRoNiCLE #2)      16.28       1
+                                                                                                     Thirst      17.27       5
+                                                                                                Set Me Free      17.46       5
+                                                 The Four Agreements: A Practical Guide to Personal Freedom      17.66       5
+                    The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull      17.93       3
+                                                             Maude (1883-1993):She Grew Up with the country      18.02       2
+                                                                                             Unicorn Tracks      18.78       3
+                                                                The Torch Is Passed: A Harding Family Story      19.09       1
+                                                                                            This One Summer      19.49       4
+                                                                                       In a Dark, Dark Wood      19.63       1
+                                                                                      Shakespeare's Sonnets      20.66       4
+America's Cradle of Quarterbacks: Western Pennsylvania's Football Factory from Johnny Unitas to Joe Montana      22.50       3
+             The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the 1936 Berlin Olympics      22.60       4
+                                                                                            The Requiem Red      22.65       1
+                                         #HigherSelfie: Wake Up Your Life. Free Your Soul. Find Your Tribe.      23.11       5
+                                                                                          The Elephant Tree      23.82       5
+                                                                                                       Olio      23.88       1
+                                                                                 Chase Me (Paris Nights #2)      25.27       5
+     Unbound: How Eight Technologies Made Us Human, Transformed Society, and Brought Our World to the Brink      25.52       1
+                                                                                      Reasons to Stay Alive      26.41       2
+
+
+### join
+SELECT c.category_name, b.title, b.rating, b.price_inr
+        FROM books b
+        JOIN categories c ON b.category_id = c.category_id
+        ORDER BY b.rating DESC, b.price_inr DESC
+        LIMIT 10;
+
+ category_name                                                              title  rating  price_inr
+       History                              Sapiens: A Brief History of Humankind       5   5721.265
+Sequential Art            Scott Pilgrim's Precious Little Life (Scott Pilgrim #1)       5   5516.595
+       Fiction                                       We Love You, Charlie Freeman       5   5303.485
+       Fiction                                        Private Paris (Private #10)       5   5022.855
+    Nonfiction            Worlds Elsewhere: Journeys Around Shakespeareâs Globe       5   4251.650
+         Music                                          Rip it Up and Start Again       5   3694.610
+       Romance                                                         Black Dust       5   3642.915
+       Romance                                         Chase Me (Paris Nights #2)       5   2665.985
+      Thriller                                                  The Elephant Tree       5   2513.010
+    Nonfiction #HigherSelfie: Wake Up Your Life. Free Your Soul. Find Your Tribe.       5   2438.105
+
+
+### pandas pd.read_sql result 1
+                                                                                                    title  price_inr  rating
+                                                                                            Sharp Objects   5045.010       4
+                                                                    Sapiens: A Brief History of Humankind   5721.265       5
+                                                       The Dirty Little Secrets of Getting Your Dream Job   3517.370       4
+           The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the 1936 Berlin Olympics   2384.300       4
+                                                                                    Shakespeare's Sonnets   2179.630       4
+                                                                                              Set Me Free   1842.030       5
+                                                  Scott Pilgrim's Precious Little Life (Scott Pilgrim #1)   5516.595       5
+                                                                                Rip it Up and Start Again   3694.610       5
+                                                                               Chase Me (Paris Nights #2)   2665.985       5
+                                                                                               Black Dust   3642.915       5
+                                                  Worlds Elsewhere: Journeys Around Shakespeareâs Globe   4251.650       5
+                                                                                           Wall and Piece   4660.990       4
+                                               The Four Agreements: A Practical Guide to Personal Freedom   1863.130       5
+                                                                                        The Elephant Tree   2513.010       5
+                                                                                           Sophie's World   1681.670       5
+                                                                                      Behind Closed Doors   5509.210       4
+                                                                              Private Paris (Private #10)   5022.855       5
+                                       #HigherSelfie: Wake Up Your Life. Free Your Soul. Find Your Tribe.   2438.105       5
+                                                                             We Love You, Charlie Freeman   5303.485       5
+                                                                  Untitled Collection: Sabbath Poems 2014   1505.485       4
+Unseen City: The Majesty of Pigeons, the Discreet Charm of Snails & Other Wonders of the Urban Wilderness   4660.990       4
+                                                                                          This One Summer   2056.195       4
+                                                                                                   Thirst   1821.985       5
+                                                                                      The Past Never Ends   5960.750       4
+
+### pandas pd.read_sql result 2
+                                                                                                                          title  price_inr
+                                                                                                 Slow States of Collapse: Poems   6046.205
+                                             Our Band Could Be Your Life: Scenes from the American Indie Underground, 1981-1991   6039.875
+                                                                                                            The Past Never Ends   5960.750
+The Pioneer Woman Cooks: Dinnertime: Comfort Classics, Freezer Food, 16-Minute Meals, and Other Delicious Ways to Solve Supper!   5951.255
+                                                                                                The Secret of Dreadwillow Carse   5921.715
+                                                                                                  Birdsong: A Story in Pictures   5764.520
+                                                                                          Sapiens: A Brief History of Humankind   5721.265
+                                                                                                             Tipping the Velvet   5669.570
+                                                                                                 Aladdin and His Wonderful Lamp   5605.215
+                                                                        Scott Pilgrim's Precious Little Life (Scott Pilgrim #1)   5516.595
+
+### SQL JOIN vs pd.merge
+SQL JOIN:
+ category_name                                                              title  rating  price_inr
+       History                              Sapiens: A Brief History of Humankind       5   5721.265
+Sequential Art            Scott Pilgrim's Precious Little Life (Scott Pilgrim #1)       5   5516.595
+       Fiction                                       We Love You, Charlie Freeman       5   5303.485
+       Fiction                                        Private Paris (Private #10)       5   5022.855
+    Nonfiction            Worlds Elsewhere: Journeys Around Shakespeareâs Globe       5   4251.650
+         Music                                          Rip it Up and Start Again       5   3694.610
+       Romance                                                         Black Dust       5   3642.915
+       Romance                                         Chase Me (Paris Nights #2)       5   2665.985
+      Thriller                                                  The Elephant Tree       5   2513.010
+    Nonfiction #HigherSelfie: Wake Up Your Life. Free Your Soul. Find Your Tribe.       5   2438.105
+
+pd.merge:
+ category_name                                                              title  rating  price_inr
+       History                              Sapiens: A Brief History of Humankind       5   5721.265
+Sequential Art            Scott Pilgrim's Precious Little Life (Scott Pilgrim #1)       5   5516.595
+       Fiction                                       We Love You, Charlie Freeman       5   5303.485
+       Fiction                                        Private Paris (Private #10)       5   5022.855
+    Nonfiction            Worlds Elsewhere: Journeys Around Shakespeareâs Globe       5   4251.650
+         Music                                          Rip it Up and Start Again       5   3694.610
+       Romance                                                         Black Dust       5   3642.915
+       Romance                                         Chase Me (Paris Nights #2)       5   2665.985
+      Thriller                                                  The Elephant Tree       5   2513.010
+    Nonfiction #HigherSelfie: Wake Up Your Life. Free Your Soul. Find Your Tribe.       5   2438.105
+
+Equivalent: True

@@ -1,0 +1,2 @@
+Selected pipeline: Random Forest
+Raw-input prediction after joblib reload: [0, 0, 0, 0, 0]
