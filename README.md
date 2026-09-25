@@ -118,3 +118,7 @@ Cleaning follows the specified missingness thresholds. Classification uses a str
 
 ### Support assistant
 The policy documents are embedded locally with `all-MiniLM-L6-v2` and stored in ChromaDB. LangGraph routes policy questions to retrieval and general questions to a direct response. The `MOCK_LLM` switch controls generation only; retrieval always remains local.
+
+## Final Validation
+
+The project structure and module documentation have been reviewed for capstone submission.
